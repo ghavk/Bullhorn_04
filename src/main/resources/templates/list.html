@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="base :: headstuff">
+    <title>Bullhorn</title>
+</head>
+<body>
+<nav th:replace="base :: navbar"></nav>
+<div class="container">
+<a href="/add">Post Message</a><br/>
+    <div class="jumbotron" th:each="message : ${messages}">
+        <h1 th:text="${message.content}"></h1>
+        <p th:text="${message.name}"></p>
+        <div th:if="${message.photo} !=null">
+            <img th:src="${message.photo}"/><hr/>
+        </div>
+<!--<table>-->
+    <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Date</th>-->
+        <!--<th>Message</th>-->
+    <!--</tr>-->
+    <!--<tr th:each="message:${messages}">-->
+        <!--<td th:text="${message.name}"></td>-->
+        <!--<td th:text="${message.postedDate}"></td>-->
+        <!--<td th:text="${message.content}"></td>-->
+    <!--</tr>-->
+<!--</table>-->
+</div>
+</div>
+<nav th:replace="base :: footer"></nav>
+<th:block th:replace="base :: jslinks"></th:block>
+</body>
+</html>
+
